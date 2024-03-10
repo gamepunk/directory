@@ -1,0 +1,89 @@
+---
+engine_version: 0.4.26
+file_version: 2024-03-10 16:22:39.149233000 Z
+resources:
+- name: action_text/encrypted_rich_text
+  preferences:
+    visible: false
+  updated_at: 2024-03-10 16:16:30.867457000 +00:00
+- name: entry
+  preferences:
+    columns:
+    - reference:
+        name: user
+        display_name: User
+        model_name: user
+        reference_type: belongs_to
+        foreign_key: user_id
+        primary_key: id
+        options: {}
+        polymorphic:
+        virtual: false
+      access_type: hidden
+      name: user_id
+    - access_type: hidden
+      name: content
+    - access_type: hidden
+      name: updated_at
+    - access_type: hidden
+      name: created_at
+  updated_at: 2024-03-10 16:22:39.149233000 +00:00
+- name: user
+  preferences:
+    columns:
+    - access_type: hidden
+      name: reset_password_sent_at
+    - access_type: hidden
+      name: remember_created_at
+    - name: password
+      display_name: Password
+      column_type: string
+      access_type: hidden
+      virtual: true
+      validators: []
+  updated_at: 2024-03-10 16:20:03.133069000 +00:00
+configs:
+- key: header.links
+  value:
+  - name: "⭐ Star on GitHub"
+    path: https://github.com/motor-admin/motor-admin-rails
+  updated_at: 2024-03-10 16:10:45.531977000 +00:00
+- key: homepage.layout
+  value: []
+  updated_at: 2024-03-10 16:16:19.258152000 +00:00
+- key: resources.entry.columns.order
+  value:
+  - id
+  - status
+  - user_id
+  - content
+  - title
+  - content_body
+  - updated_at
+  - created_at
+  updated_at: 2024-03-10 16:22:23.416696000 +00:00
+- key: resources.user.columns.order
+  value:
+  - id
+  - name
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - admin
+  - password
+  - updated_at
+  - created_at
+  updated_at: 2024-03-10 16:20:11.170122000 +00:00
+queries: []
+dashboards: []
+forms: []
+alerts: []
+api_configs:
+- id: 1
+  name: origin
+  url: "/"
+  preferences: {}
+  description:
+  updated_at: 2024-03-10 16:10:45.540517000 +00:00

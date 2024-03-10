@@ -1,0 +1,10 @@
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong><%= comment.user.name %>:</strong>
+    <%= comment.content %>
+  </p>
+
+  <% if can? [:destroy], comment %>
+    <%= button_to "删除评论", entry_comment_path(comment.entry, comment), class: "button", method: :delete, data: { turbo_confirm: "你确定要删除吗?"} %>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<h3>评论区</h3>
+
+<div id="comments">
+  <%= render @comments %>
+
+  <%= paginate @comments %>
+</div>
+
+<%= render "comments/new", entry: entry %>

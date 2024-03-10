@@ -1,0 +1,11 @@
+<%= form_with(model: [entry, Comment.new]) do |form| %>
+  <div>
+    <%= form.label "评论", style: "display: block" %>
+    <%= form.text_area :content, rows: "3" %>
+  </div>
+
+  <div>
+    <%= form.submit "留下评论" %>
+    <%= link_to "返回词条", entries_path, class: "button" %>
+  </div>
+<% end %>

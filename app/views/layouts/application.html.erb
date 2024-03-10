@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_page_title(yield(:page_title)) %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="欢迎来到梗多多，互联网冲浪指南">
+  <meta name="keywords" content="梗多多, 梗, 多多, 互联网, 冲浪, 指南">
+  <meta property="og:title" content="<%= yield(:page_title) %>">
+  <meta property="og:description" content="欢迎来到梗多多，互联网冲浪指南">
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+
+<%= render "layouts/header" %>
+
+<main>
+  <%= yield %>
+</main>
+
+<%= render "layouts/footer" %>
+
+</body>
+</html>

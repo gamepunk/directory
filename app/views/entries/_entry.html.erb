@@ -1,0 +1,31 @@
+<div id="<%= dom_id entry %>">
+
+  <% if action_name == "index" %>
+    <%= link_to entry do %>
+      <p><%= entry.title %></p>
+    <% end %>
+
+    <p><%= entry.content %></p>
+
+    <p><%= render "entries/tags", entry: entry %></p>
+
+  <% else %>
+
+    <h2><%= entry.title %></h2>
+
+    <% if entry.content.present? %>
+      <p><%= entry.content %></p>
+    <% end %>
+
+    <p><%= render "entries/tags", entry: entry %></p>
+  <% end %>
+
+</div>
+<div class="buttons">
+  <%= link_to "点赞 #{ entry.votes.count }", upvote_entry_path(entry), class: "button", data: { turbo_method: :post } %>
+
+  <% if can? [:update, :destroy], entry %>
+    <%= link_to "编辑词条", edit_entry_path(entry), class: "button" %>
+    <%= button_to "删除词条", entry, class: "button", method: :delete, data: { turbo_confirm: "你确定要删除吗?"} %>
+  <% end %>
+</div>

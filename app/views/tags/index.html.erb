@@ -1,0 +1,18 @@
+<% content_for :page_title, "标签" %>
+
+<h1>标签</h1>
+
+<div id="tags">
+  <% @tags.each do |tag| %>
+    <%= render tag %>
+
+  <% end %>
+</div>
+
+<%= paginate @tags %>
+
+<% if can? :create, Tag %>
+  <br/>
+  <%= link_to "新增标签", new_tag_path, class: "button" %>
+<% end %>
+

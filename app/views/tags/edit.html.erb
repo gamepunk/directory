@@ -1,0 +1,12 @@
+<% content_for :page_title, "编辑标签" %>
+
+<h1>编辑标签</h1>
+
+<%= render "form", tag: @tag %>
+
+<br>
+
+<div class="buttons">
+  <%= link_to "显示标签", @tag, class: "button" %>
+  <%= link_to "返回标签", tags_path, class: "button" %>
+</div>

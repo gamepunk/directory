@@ -1,0 +1,31 @@
+<div id="<%= dom_id tag %>">
+  <%= link_to tag do %>
+    <h3>
+      <%= tag.title %>
+    </h3>
+  <% end %>
+  <p>
+    <%= tag.description %>
+  </p>
+
+  <% if action_name == "show" %>
+    <p>
+      <strong>词条数:</strong>
+      <%= tag.entries.count %>
+    </p>
+  <% end %>
+</div>
+
+<div class="buttons">
+  <% if can? [:update, :destroy], tag %>
+    <%= link_to "编辑标签", edit_tag_path(tag), class: "button" %>
+    <%= link_to "删除标签", tag, class: "button", data: { turbo_method: :delete } %>
+    <% if action_name == "show" %>
+      <%= link_to "返回标签", tags_path, class: "button" %>
+    <% end %>
+  <% else %>
+    <% if action_name == "show" %>
+      <%= link_to "返回标签", tags_path, class: "button" %>
+    <% end %>
+  <% end %>
+</div>

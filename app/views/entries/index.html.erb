@@ -1,0 +1,17 @@
+<% content_for :page_title, "首页" %>
+
+<h1>词条</h1>
+
+<div id="entries">
+  <% @entries.each do |entry| %>
+    <%= render entry %>
+  <% end %>
+</div>
+<br />
+
+<%= paginate @entries %>
+
+<% if can? :create, Entry %>
+  <br/>
+  <%= link_to "新增词条", new_entry_path, class: "button" %>
+<% end %>
